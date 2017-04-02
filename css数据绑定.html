@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS样式改变</title>
+		<style type="text/css">
+			p{
+				background: #CCCCCC;
+				width: 200px;
+				height: 500px;
+			}
+			.text-red{
+				color: #ff0000;
+			}
+			.text-green{
+				color:#00ff00;
+			}
+		</style>
+	</head>
+	<body ng-app="CssModule">
+		<div ng-controller="CssCtrl">
+			<p class="text-{{color}}">
+				中国与乌克兰一直保持着良好的军事技术合作关系，
+				可以说：乌克兰将中国视作朋友，为仅次俄罗斯的军事技术来源地。
+				其中，有关发动机合作相当多，比如：中国教练机使用的小推力发动机，
+				舰用燃气轮机等。
+				同时，乌克兰技术人员也大量来华工作。
+			</p>
+			<button class="btn btn-default" ng-click="setGreen()">变绿</button>
+			
+			<button class="btn btn-default" ng-click="setRed()">还原</button>
+		</div>
+		<script type="text/javascript" src="js/angular-1.3.0.js" ></script>
+		<script type="text/javascript">
+			var cssModule=angular.module('CssModule',[]);
+			cssModule.controller('CssCtrl',['$scope',
+			function($scope){
+				$scope.color="red";
+				$scope.setGreen=function(){
+					$scope.color="green";
+				}
+				$scope.setRed=function(){
+					$scope.color="red";
+				}
+			}
+			]);
+		</script>
+	</body>
+</html>

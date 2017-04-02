@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<style type="text/css">
+			.container{
+				margin-top:50px ;
+				margin-right:50px ;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<form action="" name="form" class="css-form">
+				姓名:
+				<input type="text" name="uName" ng-model="user.name" required /><br />
+				邮箱:
+				<input type="email" name="uEmail" ng-model="user.email" required /><br />
+				<!--<div ng-show="form.uEmail.$dirty&&form.uEmail.$invalid">
+					无效提示:
+					<span ng-show="form.uEmail.$error.required">请输入邮箱</span>
+					<span ng-show="form.uEmail.$error.email">不合法的邮箱</span>
+				</div>-->
+				性别:<br />
+				<input type="radio" name="sex" ng-model="user.gender"/>
+				男
+				<input type="radio" name="sex" ng-model="user.gender"/>
+				女
+				<br />
+				<input type="checkbox" ng-model="user.agree" name="userAgree"  required/>
+				我同意
+				<br />
+				<!--<div ng-show="user.agree||user.agreeSign">
+					请同意并签名
+				</div>-->
+				<button ng-click="reset()" ng-disabled="isUnchanged(user)">重置</button>
+				<button ng-click="update(user)" ng-disabled="form.$invalid||isUnchanged(user)">保存</button>
+			</form>
+		</div>
+	</body>
+</html>

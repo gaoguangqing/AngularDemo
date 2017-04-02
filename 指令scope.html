@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+	</head>
+	<body ng-app="SM">
+		<hello></hello>
+		<hello></hello>
+		<hello></hello>
+		<hello></hello>
+	</body>
+	<script type="text/javascript" src="js/angular-1.3.0.js" ></script>
+	<script>
+		var sm=angular.module("SM",[]);
+		sm.directive("hello",function(){
+			return{
+				restrict:'AE',
+				scope:{},
+				template:'<div><input type="text" ng-model="userName">{{userName}}</div>'
+			}
+		});
+	</script>
+</html>
